@@ -1,0 +1,120 @@
+{
+  "checked_at_utc": "2026-10-27T11:12:35.739981+00:00",
+  "status": "passed_implementation_checks_only",
+  "upstream": {
+    "url": "https://github.com/LafinHana/FedGCDR",
+    "commit": "09c63ef5b36903dfbadee86b31aabdcee7f98205",
+    "history_commits": 22,
+    "tracked_files_verified": 11,
+    "worktree_clean": true
+  },
+  "tests": {
+    "command": "source .venv/bin/activate && python -m pytest -q --junitxml=results/implementation_tests.xml",
+    "passed": 22,
+    "failures": 0,
+    "errors": 0,
+    "report": "results/implementation_tests.xml"
+  },
+  "environment": {
+    "python": "3.14.6",
+    "torch": "2.14.1",
+    "numpy": "2.5.4",
+    "device": "cpu"
+  },
+  "pilot": {
+    "config": "configs/pilot.json",
+    "prepared": "data/pilot_256",
+    "run": "runs/pilot_256",
+    "input_rows_total": 300000,
+    "users": 256,
+    "users_with_source_knowledge": 86,
+    "source_vectors": 105,
+    "validation_users": 8,
+    "test_users": 6,
+    "modes_completed": [
+      "local",
+      "graph_transfer",
+      "fixed",
+      "fixed_capacity",
+      "global",
+      "user",
+      "item"
+    ],
+    "elapsed_seconds": 4.914679041015916,
+    "final_test_calls_per_mode": 1,
+    "all_test_recall_and_ndcg_zero": true,
+    "gate_training_diagnostics": {
+      "local": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.0,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.0,
+        "maximum_user_mean": 0.0
+      },
+      "graph_transfer": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 1.0,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 1.0,
+        "maximum_user_mean": 1.0
+      },
+      "fixed": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.5,
+        "maximum_user_mean": 0.5
+      },
+      "fixed_capacity": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.5,
+        "maximum_user_mean": 0.5
+      },
+      "global": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.4954943060874939,
+        "std_across_user_means": 2.9802322387695312e-08,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.4954943358898163,
+        "maximum_user_mean": 0.4954943358898163
+      },
+      "user": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5880834460258484,
+        "std_across_user_means": 0.011858140118420124,
+        "mean_std_across_candidate_items": 1.4554622561432594e-08,
+        "minimum_user_mean": 0.5726246237754822,
+        "maximum_user_mean": 0.6240689754486084
+      },
+      "item": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5317164659500122,
+        "std_across_user_means": 0.00757474172860384,
+        "mean_std_across_candidate_items": 0.008274756696854913,
+        "minimum_user_mean": 0.5182279348373413,
+        "maximum_user_mean": 0.55733323097229
+      }
+    }
+  },
+  "interpretation": "Confirms source reuse, dynamic-gate behavior and pipeline execution. Six test users and all-zero test ranking metrics provide no evidence of effectiveness.",
+  "remaining_research": [
+    "Full data provenance and overlap audit",
+    "Formal cohort/domain protocol",
+    "Validation-only hyperparameter search",
+    "Multiple seeds and input ablations",
+    "Independent upstream reproduction and privacy design"
+  ]
+}

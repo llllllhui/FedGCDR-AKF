@@ -1,0 +1,1813 @@
+{
+  "created_at_utc": "2026-10-28T07:02:58.517978+00:00",
+  "status": "completed_exploratory_local_comparison",
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "config": {
+    "data": {
+      "ratings_dir": "ratings-full",
+      "target": "Movies_and_TV",
+      "sources": [
+        "Books",
+        "CDs_and_Vinyl"
+      ],
+      "max_rows_per_domain": 1000000,
+      "max_users": 2048,
+      "min_train_interactions": 3,
+      "rating_threshold": 4.0,
+      "train_fraction": 0.7,
+      "validation_fraction": 0.15,
+      "seed": 2026
+    },
+    "training": {
+      "seed": 2026,
+      "device": "cpu",
+      "threads": 1,
+      "embedding_dim": 8,
+      "pretrain_rounds": 3,
+      "fusion_rounds": 10,
+      "local_epochs": 1,
+      "client_batch_size": 32,
+      "max_history": 24,
+      "max_positives": 24,
+      "negatives_per_positive": 4,
+      "learning_rate": 0.01,
+      "fixed_gamma": 0.5,
+      "fixed_gamma_candidates": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "modes": [
+        "local",
+        "graph_transfer",
+        "fixed",
+        "fixed_capacity",
+        "global",
+        "user",
+        "item"
+      ]
+    },
+    "comparison": {
+      "seeds": [
+        2026,
+        2027,
+        2028
+      ],
+      "workers": 2
+    }
+  },
+  "prepared_sha256": "c63a303639320e43bfa8a9e7b4df7d9a88e7207675eede92f01392df9d2de238",
+  "source_sha256": {
+    "research/fedgcdr_akf/__init__.py": "1871764e173daf101ea6ca21c94f32911def5f57e0a814f86ef0e2074ffb1942",
+    "research/fedgcdr_akf/__main__.py": "727b6b5533ae48e65dba04bba7a873d4b2bd3151dc371a8d1129e29f8bc23158",
+    "research/fedgcdr_akf/comparison.py": "115b2dde6430cc63af434200bab4f040bc602750b426029902f50fa6e6496c84",
+    "research/fedgcdr_akf/data.py": "12fdbf240f77249d058f6d42f43cbcdd94fc50518f5a431fd974674f7dc6347c",
+    "research/fedgcdr_akf/federated.py": "1d2558aa9f3498cf03c8eecde2adb814db50bab5e596c64e4df9580d307fb8cb",
+    "research/fedgcdr_akf/model.py": "fc2de11383b1d5a150bb38cd3f34fe48436c9611f2fda66a5f7ffb529c5b8a05",
+    "research/fedgcdr_akf/run.py": "5e45738b14b5986012b01a6f241aeea705f3fd152b1e63cc94a5b657b1c8c64b",
+    "research/fedgcdr_akf/upstream.py": "dfb6c98d7e064bb83fa3017a743fca980ecce4effcae0ef888f9e3695a7bc21c"
+  },
+  "environment": {
+    "python": "3.14.6",
+    "torch": "2.14.1",
+    "numpy": "2.5.4",
+    "device": "cpu"
+  },
+  "upstream": {
+    "url": "https://github.com/LafinHana/FedGCDR",
+    "commit": "09c63ef5b36903dfbadee86b31aabdcee7f98205",
+    "history_commits": 22,
+    "checkout": "upstream/FedGCDR",
+    "fetch_mode": "Partial clone with full commit history; current checkout materialized, historical blobs fetched on demand.",
+    "model_sha256": "a41f494219c4e9fd969fcf07ba02057a79f46507c53cd0c79245e0dcbcaa3a69",
+    "tracked_file_sha256": {
+      "README.md": "efa6800f5684858c371657135dd34c836e2bec34238c64f142a169bc89ae9f3f",
+      "assets/FedGCDR.png": "73d7a991c99eca281f77b2a21133353964fd7238e12004a6df7beae9c751de81",
+      "assets/dataset.png": "fdc0255c4ca6617e05a0f1ee0a9da962ed72adf43fc5a106a4d04b28cbea44f1",
+      "assets/results.png": "1ab2edb9e9c301a98432495ac2db46cfe68ff0da050974c84f6c1b32b184621c",
+      "main.py": "687ca80975518a99cfdd1c2f07f31d924e05bfab48800975ab0cb08227f3bdf1",
+      "model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "model/fedgcdr/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "model/fedgcdr/model.py": "a41f494219c4e9fd969fcf07ba02057a79f46507c53cd0c79245e0dcbcaa3a69",
+      "model/fedgcdr/party.py": "77d1fda2a2dd92ef0afed6584d5fc32f755b20d83767e23b07120909c7f04d33",
+      "paper/FedGCDR.pdf": "7289c0d6d66f5033c2bde764cb492cf4a3e51f41da9a7f3a96c125e7ded09ddf",
+      "utility.py": "e7b178a1648b259b3588ee7b2a163c70dd421ee361c518814fa83cd2bf999e91"
+    },
+    "license_file": "No license file found in the pinned upstream tree; no new license is assigned to upstream code."
+  },
+  "data_summary": {
+    "config": {
+      "ratings_dir": "ratings-full",
+      "target": "Movies_and_TV",
+      "sources": [
+        "Books",
+        "CDs_and_Vinyl"
+      ],
+      "max_rows_per_domain": 1000000,
+      "max_users": 2048,
+      "min_train_interactions": 3,
+      "rating_threshold": 4.0,
+      "train_fraction": 0.7,
+      "validation_fraction": 0.15,
+      "seed": 2026
+    },
+    "scope": "bounded_prefix_pilot",
+    "cohort_rule": "Target users selected by training-only history, then seeded ID hash; sources restricted to this cohort.",
+    "deduplication": "Earliest positive event per domain/user/item, rating >= threshold.",
+    "split_rule": "Target timestamp quantiles; all domain training timestamps <= target train cutoff; warm items only.",
+    "train_cutoff": 1444694400,
+    "validation_cutoff": 1470787200,
+    "users": 2048,
+    "source_overlap_users": 936,
+    "domains": {
+      "Movies_and_TV": {
+        "train_users": 2048,
+        "train_items": 3496,
+        "train_pairs": 12862,
+        "max_train_timestamp": 1444694400,
+        "validation": {
+          "cohort_positive_pairs": 582,
+          "warm_item_positive_pairs": 531,
+          "dropped_unseen_items": 51,
+          "evaluated_users": 229
+        },
+        "test": {
+          "cohort_positive_pairs": 533,
+          "warm_item_positive_pairs": 489,
+          "dropped_unseen_items": 44,
+          "evaluated_users": 217
+        }
+      },
+      "Books": {
+        "train_users": 426,
+        "train_items": 709,
+        "train_pairs": 1269,
+        "max_train_timestamp": 1444348800
+      },
+      "CDs_and_Vinyl": {
+        "train_users": 742,
+        "train_items": 5342,
+        "train_pairs": 8042,
+        "max_train_timestamp": 1444608000
+      }
+    },
+    "input_manifest": [
+      {
+        "domain": "Movies_and_TV",
+        "path": "/Users/Admin/code/FedGCDR-AKF/ratings-full/Movies_and_TV.csv",
+        "file_size_bytes": 365735607,
+        "rows_read": 1000000,
+        "bytes_read": 41687621,
+        "positive_rows": 834668,
+        "hash_scope": "consumed_prefix",
+        "sha256": "69ce5ac347e2639f893b98cbc542bc04197e3a669076a31a825ee2d0c60c7b00",
+        "unique_positive_pairs": 831047,
+        "duplicate_positive_rows": 3621
+      },
+      {
+        "domain": "Books",
+        "path": "/Users/Admin/code/FedGCDR-AKF/ratings-full/Books.csv",
+        "file_size_bytes": 2140933459,
+        "rows_read": 1000000,
+        "bytes_read": 41708215,
+        "positive_rows": 832628,
+        "hash_scope": "consumed_prefix",
+        "sha256": "db161abe02e24013fd0f8aabf84267611d4c8859716acc5e3915d0fe58c23283",
+        "unique_positive_pairs": 818216,
+        "duplicate_positive_rows": 14412
+      },
+      {
+        "domain": "CDs_and_Vinyl",
+        "path": "/Users/Admin/code/FedGCDR-AKF/ratings-full/CDs_and_Vinyl.csv",
+        "file_size_bytes": 189332114,
+        "rows_read": 1000000,
+        "bytes_read": 41533010,
+        "positive_rows": 884140,
+        "hash_scope": "consumed_prefix",
+        "sha256": "286057c8a5bb2b9abaf681a33f11db10b270c5a0669f05703771efdb6b6a354c",
+        "unique_positive_pairs": 878774,
+        "duplicate_positive_rows": 5366
+      }
+    ],
+    "provenance": "User-supplied CSV files; dataset release and ID semantics not independently verified."
+  },
+  "test_users": 217,
+  "protocol_audit": {
+    "2026": {
+      "local": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "graph_transfer": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "fixed": {
+        "validation_evaluations": 30,
+        "final_test_evaluations": 1
+      },
+      "fixed_capacity": {
+        "validation_evaluations": 30,
+        "final_test_evaluations": 1
+      },
+      "global": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "user": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "item": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      }
+    },
+    "2027": {
+      "local": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "graph_transfer": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "fixed": {
+        "validation_evaluations": 30,
+        "final_test_evaluations": 1
+      },
+      "fixed_capacity": {
+        "validation_evaluations": 30,
+        "final_test_evaluations": 1
+      },
+      "global": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "user": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "item": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      }
+    },
+    "2028": {
+      "local": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "graph_transfer": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "fixed": {
+        "validation_evaluations": 30,
+        "final_test_evaluations": 1
+      },
+      "fixed_capacity": {
+        "validation_evaluations": 30,
+        "final_test_evaluations": 1
+      },
+      "global": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "user": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      },
+      "item": {
+        "validation_evaluations": 10,
+        "final_test_evaluations": 1
+      }
+    }
+  },
+  "methods": {
+    "local": {
+      "recall@10": {
+        "mean": 0.04154863313849489,
+        "std": 0.002732269107227542,
+        "values": [
+          0.039518123965128577,
+          0.04465507610668901,
+          0.04047269934366709
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.023755381543568165,
+        "std": 0.0056538727944033555,
+        "values": [
+          0.020876854184188928,
+          0.030269272082079357,
+          0.02012001836443621
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.06543456543456544,
+          "std": 0.00782556096367842,
+          "values": [
+            0.05759240759240759,
+            0.07324342324342324,
+            0.06546786546786547
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.03935908593237406,
+          "std": 0.009103132267529455,
+          "values": [
+            0.03440832155435737,
+            0.0498646901690693,
+            0.03380424607369551
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.024297682035777275,
+          "std": 0.002037430821040769,
+          "values": [
+            0.026464474678760393,
+            0.02400793650793651,
+            0.02242063492063492
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.012486039484986129,
+          "std": 0.0031742776176912706,
+          "values": [
+            0.011104127750178381,
+            0.016117025685919956,
+            0.01023696501886005
+          ]
+        }
+      },
+      "selected_rounds": [
+        10,
+        6,
+        6
+      ],
+      "selected_fixed_gammas": [
+        null,
+        null,
+        null
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 19.282845722336788,
+        "std": 0.19476323329103906,
+        "values": [
+          19.353659665968735,
+          19.432294792030007,
+          19.06258270901162
+        ]
+      },
+      "active_shared_parameters": 0,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 46527626.666666664,
+        "std": 2767.0441509548295,
+        "values": [
+          46524480,
+          46528720,
+          46529680
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.0,
+          "maximum_user_mean": 0.0
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.0,
+          "maximum_user_mean": 0.0
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.0,
+          "maximum_user_mean": 0.0
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.03291079107910791,
+            "std": 0.005672815513072915,
+            "values": [
+              0.03019051905190519,
+              0.02911041104110411,
+              0.03943144314431443
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.021297160522545915,
+            "std": 0.0010972814477191385,
+            "values": [
+              0.02014331827216183,
+              0.022327416646861182,
+              0.02142074664861473
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.03292020004348772,
+            "std": 0.008705258591180782,
+            "values": [
+              0.03209393346379648,
+              0.04200913242009133,
+              0.024657534246575342
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.018851957018741497,
+            "std": 0.01077498548977243,
+            "values": [
+              0.014725840992385006,
+              0.03108023451836417,
+              0.010749795545475314
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.07648578811369508,
+            "std": 0.008225216559378292,
+            "values": [
+              0.07403100775193798,
+              0.08565891472868216,
+              0.06976744186046512
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.03785376092579129,
+            "std": 0.008394358565936304,
+            "values": [
+              0.03304222837294294,
+              0.047546647456689704,
+              0.03297240694774123
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.0025443706319282374,
+          "std": 0.016322703817899138,
+          "values": [
+            -0.016167434715821806,
+            0.01385780118499012,
+            0.009942745426616398
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.0030218729630054476,
+          "std": 0.012532185634702372,
+          "values": [
+            -0.011185190772789164,
+            0.012507668835572,
+            0.007743140826233506
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.04608294930875576,
+        "std": 0.01596360191307721,
+        "values": [
+          0.06451612903225806,
+          0.03686635944700461,
+          0.03686635944700461
+        ]
+      }
+    },
+    "graph_transfer": {
+      "recall@10": {
+        "mean": 0.04750151282409347,
+        "std": 0.01666762035087391,
+        "values": [
+          0.06512358609132803,
+          0.04539170506912442,
+          0.03198924731182796
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.026558668466782856,
+        "std": 0.008062348384497504,
+        "values": [
+          0.03528960941043021,
+          0.024991315961006386,
+          0.01939508002891197
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.06257076257076256,
+          "std": 0.02309814629349487,
+          "values": [
+            0.08496503496503496,
+            0.06391941391941391,
+            0.03882783882783883
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.03893624480670849,
+          "std": 0.009483825655719268,
+          "values": [
+            0.04753061567661032,
+            0.04051660486975383,
+            0.02876151387376131
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.03661816578483245,
+          "std": 0.012524355023441635,
+          "values": [
+            0.050793650793650794,
+            0.03201058201058201,
+            0.02705026455026455
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.017619307776836565,
+          "std": 0.007668156254792094,
+          "values": [
+            0.02644888266263346,
+            0.01377860730468879,
+            0.012630433363187444
+          ]
+        }
+      },
+      "selected_rounds": [
+        6,
+        1,
+        10
+      ],
+      "selected_fixed_gammas": [
+        null,
+        null,
+        null
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 27.524375153006986,
+        "std": 0.24460377779683898,
+        "values": [
+          27.66556216700701,
+          27.66563225002028,
+          27.241931041993666
+        ]
+      },
+      "active_shared_parameters": 536,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 134345866.66666666,
+        "std": 2767.0441509548295,
+        "values": [
+          134342720,
+          134346960,
+          134347920
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 1.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 1.0,
+          "maximum_user_mean": 1.0
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 1.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 1.0,
+          "maximum_user_mean": 1.0
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 1.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 1.0,
+          "maximum_user_mean": 1.0
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.03066056605660566,
+            "std": 0.016297968917995044,
+            "values": [
+              0.04866486648664867,
+              0.0264026402640264,
+              0.016914191419141914
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.013888360654800596,
+            "std": 0.006129031640537456,
+            "values": [
+              0.020951630980120733,
+              0.010741027566423528,
+              0.009972423417857526
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.04726027397260274,
+            "std": 0.014723814919987423,
+            "values": [
+              0.06324200913242009,
+              0.03424657534246575,
+              0.04429223744292238
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.028048144032285907,
+            "std": 0.008569225800422294,
+            "values": [
+              0.03794016506485009,
+              0.02289580674337357,
+              0.023308460288634068
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.08746770025839794,
+            "std": 0.03548223277667204,
+            "values": [
+              0.10697674418604651,
+              0.10891472868217054,
+              0.046511627906976744
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.05379051434418947,
+            "std": 0.016419411319900244,
+            "values": [
+              0.06446740612411869,
+              0.062020415978217176,
+              0.03488372093023256
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.008497250317526813,
+          "std": 0.006617911342071413,
+          "values": [
+            0.009438027410377643,
+            0.014594430147425532,
+            0.0014592933947772668
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.005825159886220137,
+          "std": 0.002252068086880335,
+          "values": [
+            0.0032275644534521183,
+            0.007229712714499029,
+            0.007018202490709264
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.05222734254992319,
+        "std": 0.01407857356361241,
+        "values": [
+          0.055299539170506916,
+          0.06451612903225806,
+          0.03686635944700461
+        ]
+      }
+    },
+    "fixed": {
+      "recall@10": {
+        "mean": 0.039004262506566655,
+        "std": 0.014447044565343233,
+        "values": [
+          0.05568555868095038,
+          0.030797274921698887,
+          0.03052995391705069
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.020733508580562717,
+        "std": 0.010173525449038993,
+        "values": [
+          0.03206204495697809,
+          0.017761603246507357,
+          0.012376877538202704
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.05075480075480075,
+          "std": 0.025051068233987783,
+          "values": [
+            0.07737262737262737,
+            0.02763902763902764,
+            0.04725274725274725
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.028072108947037593,
+          "std": 0.01742390733555334,
+          "values": [
+            0.04817181468425066,
+            0.018792917350347948,
+            0.017251594806514167
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.030517762660619806,
+          "std": 0.011010740392208979,
+          "values": [
+            0.04002267573696145,
+            0.03307823129251701,
+            0.018452380952380953
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.01543340831588642,
+          "std": 0.005945759822710304,
+          "values": [
+            0.020427211265059014,
+            0.017016765282622488,
+            0.008856248399977762
+          ]
+        }
+      },
+      "selected_rounds": [
+        3,
+        10,
+        10
+      ],
+      "selected_fixed_gammas": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 83.48740523597614,
+        "std": 2.2051448513306036,
+        "values": [
+          84.69626979099121,
+          84.82375854195561,
+          80.94218737498159
+        ]
+      },
+      "active_shared_parameters": 683,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 158430346.66666666,
+        "std": 2767.0441509548295,
+        "values": [
+          158427200,
+          158431440,
+          158432400
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.25,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.25,
+          "maximum_user_mean": 0.25
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.5,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.5,
+          "maximum_user_mean": 0.5
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.25,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.25,
+          "maximum_user_mean": 0.25
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.03486991556298487,
+            "std": 0.013393182379845847,
+            "values": [
+              0.048754875487548754,
+              0.03382516823110882,
+              0.022029702970297032
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.019655043503809422,
+            "std": 0.0103227669525143,
+            "values": [
+              0.03028201004897935,
+              0.019017049948013575,
+              0.009666070514435346
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.048597521200260924,
+            "std": 0.005165665087267941,
+            "values": [
+              0.054468362687540774,
+              0.04474885844748858,
+              0.04657534246575342
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.02310814399301013,
+            "std": 0.0035222331683876927,
+            "values": [
+              0.023379358865922795,
+              0.026486929585516784,
+              0.019458143527590812
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.03242894056847545,
+            "std": 0.03785838369651844,
+            "values": [
+              0.07403100775193798,
+              0.0,
+              0.023255813953488372
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.01923528968854927,
+            "std": 0.027699389194502676,
+            "values": [
+              0.05098343124430158,
+              0.0,
+              0.00672243782134623
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.0,
+          "std": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.0,
+          "std": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.0,
+        "std": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "fixed_capacity": {
+      "recall@10": {
+        "mean": 0.04094998703293634,
+        "std": 0.00797353928594347,
+        "values": [
+          0.04877311628463702,
+          0.04124274343168352,
+          0.032834101382488476
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.02205631236610111,
+        "std": 0.007332450295983099,
+        "values": [
+          0.029059369714698642,
+          0.022675793055083767,
+          0.014433774328520914
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.05832500832500832,
+          "std": 0.009915095399976506,
+          "values": [
+            0.06638361638361638,
+            0.06133866133866134,
+            0.04725274725274725
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.031304931932117946,
+          "std": 0.011912004025244439,
+          "values": [
+            0.041822132082015476,
+            0.033723389604293816,
+            0.018369274110044555
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.02840136054421769,
+          "std": 0.006969043386736439,
+          "values": [
+            0.03605442176870748,
+            0.02672902494331066,
+            0.02242063492063492
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.015376753790644501,
+          "std": 0.0041669708009698,
+          "values": [
+            0.01984181911608093,
+            0.014696973325098733,
+            0.011591468930753841
+          ]
+        }
+      },
+      "selected_rounds": [
+        2,
+        10,
+        10
+      ],
+      "selected_fixed_gammas": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 86.46589922196775,
+        "std": 4.290095847898189,
+        "values": [
+          88.86704691697378,
+          89.01776320795761,
+          81.51288754097186
+        ]
+      },
+      "active_shared_parameters": 845,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 184972426.66666666,
+        "std": 2767.0441509548295,
+        "values": [
+          184969280,
+          184973520,
+          184974480
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.5,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.5,
+          "maximum_user_mean": 0.5
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 1.0,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 1.0,
+          "maximum_user_mean": 1.0
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.5,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.5,
+          "maximum_user_mean": 0.5
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.033934822053633934,
+            "std": 0.009445626638589236,
+            "values": [
+              0.033903390339033904,
+              0.04339612532681839,
+              0.024504950495049506
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.0179966936225505,
+            "std": 0.007761379185597677,
+            "values": [
+              0.018882093810246317,
+              0.02527740318657715,
+              0.009830583870828032
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.034670580560991524,
+            "std": 0.012531382288406754,
+            "values": [
+              0.04761904761904762,
+              0.033789954337899546,
+              0.022602739726027395
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.020329478548267745,
+            "std": 0.004667878478142737,
+            "values": [
+              0.023702424810701162,
+              0.022283955103569716,
+              0.015002055730532355
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.06808785529715762,
+            "std": 0.01846822286778229,
+            "values": [
+              0.08565891472868216,
+              0.04883720930232558,
+              0.06976744186046512
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.03452329752425103,
+            "std": 0.024105365664477837,
+            "values": [
+              0.062058482373803306,
+              0.017230247640658055,
+              0.024281162558291745
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.0019457245263696857,
+          "std": 0.008684504476951025,
+          "values": [
+            -0.006912442396313362,
+            0.010445468509984634,
+            0.002304147465437785
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.0013228037855383898,
+          "std": 0.0040091591965293345,
+          "values": [
+            -0.0030026752422794498,
+            0.00491418980857641,
+            0.002056896790318209
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.027649769585253458,
+        "std": 0.004608294930875575,
+        "values": [
+          0.02304147465437788,
+          0.027649769585253458,
+          0.03225806451612903
+        ]
+      }
+    },
+    "global": {
+      "recall@10": {
+        "mean": 0.04199732678995352,
+        "std": 0.012264305781697687,
+        "values": [
+          0.05610449458375726,
+          0.0338694715422826,
+          0.0360180142438207
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.022563212671781307,
+        "std": 0.008523002083513316,
+        "values": [
+          0.03201123894323975,
+          0.02022513000359419,
+          0.015453269068509986
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.057159507159507156,
+          "std": 0.02296791795739185,
+          "values": [
+            0.07837162837162837,
+            0.032767232767232764,
+            0.06033966033966034
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.032521321839781826,
+          "std": 0.013645444846627318,
+          "values": [
+            0.048237478733161615,
+            0.02368857707103536,
+            0.025637909715148507
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.03104686318972033,
+          "std": 0.011231227983526647,
+          "values": [
+            0.04002267573696145,
+            0.03466553287981859,
+            0.018452380952380953
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.015371244939336488,
+          "std": 0.006428665370569914,
+          "values": [
+            0.020292287983851735,
+            0.017723751565997786,
+            0.008097695268159944
+          ]
+        }
+      },
+      "selected_rounds": [
+        3,
+        10,
+        4
+      ],
+      "selected_fixed_gammas": [
+        null,
+        null,
+        null
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 29.421578749994904,
+        "std": 1.736110696402066,
+        "values": [
+          30.402903375041205,
+          30.444796166964807,
+          27.417036707978696
+        ]
+      },
+      "active_shared_parameters": 684,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 158594186.66666666,
+        "std": 2767.0441509548295,
+        "values": [
+          158591040,
+          158595280,
+          158596240
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.5776161551475525,
+          "std_across_user_means": 5.960464477539063e-08,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.5776160955429077,
+          "maximum_user_mean": 0.5776160955429077
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.5762431621551514,
+          "std_across_user_means": 5.960464477539063e-08,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.5762431025505066,
+          "maximum_user_mean": 0.5762431025505066
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.5651021599769592,
+          "std_across_user_means": 0.0,
+          "mean_std_across_candidate_items": 0.0,
+          "minimum_user_mean": 0.5651021599769592,
+          "maximum_user_mean": 0.5651021599769592
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.03734016258768734,
+            "std": 0.011496388709939522,
+            "values": [
+              0.04965496549654966,
+              0.03547533324761048,
+              0.02689018901890189
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.021103655814691806,
+            "std": 0.007427391773410849,
+            "values": [
+              0.02841031705921711,
+              0.02133949922415428,
+              0.013561151160704025
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.044487932159165036,
+            "std": 0.010113418450420847,
+            "values": [
+              0.054468362687540774,
+              0.04474885844748858,
+              0.03424657534246575
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.022094489407615592,
+            "std": 0.007688102395923539,
+            "values": [
+              0.024663897916408096,
+              0.028168828799401486,
+              0.013450741507037199
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.04870801033591731,
+            "std": 0.03282086077037943,
+            "values": [
+              0.07403100775193798,
+              0.011627906976744186,
+              0.06046511627906977
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.02678721362178449,
+            "std": 0.024596789423411373,
+            "values": [
+              0.052942611158239686,
+              0.004121843878698785,
+              0.023297185828414998
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.0029930642833868675,
+          "std": 0.0025354885232431166,
+          "values": [
+            0.0004189359028068801,
+            0.003072196620583712,
+            0.00548806032677001
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.0018297040912185897,
+          "std": 0.001657148001446308,
+          "values": [
+            -5.080601373834426e-05,
+            0.0024635267570868313,
+            0.003076391530307282
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.02457757296466974,
+        "std": 0.009592930873115819,
+        "values": [
+          0.03225806451612903,
+          0.013824884792626729,
+          0.027649769585253458
+        ]
+      }
+    },
+    "user": {
+      "recall@10": {
+        "mean": 0.042867782499118906,
+        "std": 0.011475882942780768,
+        "values": [
+          0.05610449458375726,
+          0.03571278951463283,
+          0.036786063398966624
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.02374647839372579,
+        "std": 0.00936048915669514,
+        "values": [
+          0.03448100229369126,
+          0.019472950750332115,
+          0.017285482137153994
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.06363081363081363,
+          "std": 0.014067897847717042,
+          "values": [
+            0.07837162837162837,
+            0.050349650349650346,
+            0.06217116217116217
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.035689853495891,
+          "std": 0.010352791286294672,
+          "values": [
+            0.04764420328473411,
+            0.02969198410778025,
+            0.029733373095158656
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.027872260015117157,
+          "std": 0.011041343990134308,
+          "values": [
+            0.04002267573696145,
+            0.02514172335600907,
+            0.018452380952380953
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.01512070748660647,
+          "std": 0.008742073353213515,
+          "values": [
+            0.024974246022382542,
+            0.012092537769952904,
+            0.00829533866748396
+          ]
+        }
+      },
+      "selected_rounds": [
+        2,
+        8,
+        4
+      ],
+      "selected_fixed_gammas": [
+        null,
+        null,
+        null
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 33.987608957996905,
+        "std": 2.007106973209815,
+        "values": [
+          35.13438645802671,
+          35.15839749999577,
+          31.670042915968224
+        ]
+      },
+      "active_shared_parameters": 836,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 183497866.66666666,
+        "std": 2767.0441509548295,
+        "values": [
+          183494720,
+          183498960,
+          183499920
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.9342380166053772,
+          "std_across_user_means": 0.014604557305574417,
+          "mean_std_across_candidate_items": 4.29841188284067e-08,
+          "minimum_user_mean": 0.9021099805831909,
+          "maximum_user_mean": 0.967323899269104
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.8590913414955139,
+          "std_across_user_means": 0.03279176354408264,
+          "mean_std_across_candidate_items": 4.368460076486962e-08,
+          "minimum_user_mean": 0.7664265036582947,
+          "maximum_user_mean": 0.9056748151779175
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.8525273203849792,
+          "std_across_user_means": 0.03782123699784279,
+          "mean_std_across_candidate_items": 4.215627653985961e-08,
+          "minimum_user_mean": 0.7619205117225647,
+          "maximum_user_mean": 0.9199352264404297
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.03392982155358393,
+            "std": 0.013841111214681727,
+            "values": [
+              0.04965496549654966,
+              0.023594145128798594,
+              0.02854035403540354
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.020109586947177908,
+            "std": 0.010154919110461236,
+            "values": [
+              0.031825302323005844,
+              0.013828772920556894,
+              0.014674685597970983
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.04494455316373125,
+            "std": 0.010161898161781688,
+            "values": [
+              0.054468362687540774,
+              0.046118721461187215,
+              0.03424657534246575
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.02499342599032925,
+            "std": 0.009110263862025335,
+            "values": [
+              0.03393379852806186,
+              0.025324199188136474,
+              0.015722280254789413
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.0603359173126615,
+            "std": 0.013760144840898493,
+            "values": [
+              0.07403100775193798,
+              0.046511627906976744,
+              0.06046511627906977
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.03017203331347658,
+            "std": 0.010072284938381982,
+            "values": [
+              0.04164778303625346,
+              0.022796690863066512,
+              0.026071626041109765
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.0038635199925522528,
+          "std": 0.003057477445147613,
+          "values": [
+            0.0004189359028068801,
+            0.004915514592933944,
+            0.0062561094819159335
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.003012969813163073,
+          "std": 0.0016793603989965484,
+          "values": [
+            0.0024189573367131706,
+            0.0017113475038247582,
+            0.00490860459895129
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.03379416282642089,
+        "std": 0.009592930873115819,
+        "values": [
+          0.041474654377880185,
+          0.03686635944700461,
+          0.02304147465437788
+        ]
+      }
+    },
+    "item": {
+      "recall@10": {
+        "mean": 0.04033322028713734,
+        "std": 0.013802306344771094,
+        "values": [
+          0.05618129949927185,
+          0.0338694715422826,
+          0.03094888981985756
+        ]
+      },
+      "ndcg@10": {
+        "mean": 0.02123340292815374,
+        "std": 0.009705207673237914,
+        "values": [
+          0.03160258295829959,
+          0.01972999955701705,
+          0.012367626269144585
+        ]
+      },
+      "with_source": {
+        "users": 91,
+        "recall@10": {
+          "mean": 0.05758685758685758,
+          "std": 0.018195058154618558,
+          "values": [
+            0.07855477855477855,
+            0.04595404595404595,
+            0.04825174825174825
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.029030426602436342,
+          "std": 0.010946227960570898,
+          "values": [
+            0.040872426259950155,
+            0.02693633017569603,
+            0.019282523371662842
+          ]
+        }
+      },
+      "without_source": {
+        "users": 126,
+        "recall@10": {
+          "mean": 0.027872260015117157,
+          "std": 0.011041343990134308,
+          "values": [
+            0.04002267573696145,
+            0.02514172335600907,
+            0.018452380952380953
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.015602219163394085,
+          "std": 0.008816536815847684,
+          "values": [
+            0.02490769612932974,
+            0.014525427443526672,
+            0.007373533917325842
+          ]
+        }
+      },
+      "selected_rounds": [
+        2,
+        8,
+        3
+      ],
+      "selected_fixed_gammas": [
+        null,
+        null,
+        null
+      ],
+      "elapsed_seconds_including_search": {
+        "mean": 34.2370559166496,
+        "std": 2.0685512863748867,
+        "values": [
+          35.42588233295828,
+          35.43677849997766,
+          31.848506917012855
+        ]
+      },
+      "active_shared_parameters": 900,
+      "selected_trial_payload_bytes_estimate": {
+        "mean": 193983626.66666666,
+        "std": 2767.0441509548295,
+        "values": [
+          193980480,
+          193984720,
+          193985680
+        ]
+      },
+      "training_only_gate_diagnostics_by_seed": {
+        "2026": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.891532838344574,
+          "std_across_user_means": 0.022802917286753654,
+          "mean_std_across_candidate_items": 0.05059360332178095,
+          "minimum_user_mean": 0.8517950773239136,
+          "maximum_user_mean": 0.9564324021339417
+        },
+        "2027": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.6552488803863525,
+          "std_across_user_means": 0.10502849519252777,
+          "mean_std_across_candidate_items": 0.15831650260230926,
+          "minimum_user_mean": 0.36839765310287476,
+          "maximum_user_mean": 0.8946089744567871
+        },
+        "2028": {
+          "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+          "users": 936,
+          "mean": 0.7993409633636475,
+          "std_across_user_means": 0.039896607398986816,
+          "mean_std_across_candidate_items": 0.09941852205377232,
+          "minimum_user_mean": 0.7213420867919922,
+          "maximum_user_mean": 0.8921568393707275
+        }
+      },
+      "by_train_count": {
+        "1_to_4": {
+          "users": 101,
+          "recall@10": {
+            "mean": 0.03315974454588316,
+            "std": 0.01468333919615329,
+            "values": [
+              0.04800480048004801,
+              0.018643650079293642,
+              0.03283078307830783
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.01682864488290481,
+            "std": 0.007570540701601724,
+            "values": [
+              0.025551145291478762,
+              0.011965820674677476,
+              0.012968968682558193
+            ]
+          }
+        },
+        "5_to_9": {
+          "users": 73,
+          "recall@10": {
+            "mean": 0.05034790171776473,
+            "std": 0.015276042493493907,
+            "values": [
+              0.05697977821265493,
+              0.06118721461187215,
+              0.03287671232876712
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.028297100868809797,
+            "std": 0.01194934300783966,
+            "values": [
+              0.03516472223562589,
+              0.03522734493682722,
+              0.014499235433976278
+            ]
+          }
+        },
+        "10_plus": {
+          "users": 43,
+          "recall@10": {
+            "mean": 0.040180878552971575,
+            "std": 0.029315071807690298,
+            "values": [
+              0.07403100775193798,
+              0.023255813953488372,
+              0.023255813953488372
+            ]
+          },
+          "ndcg@10": {
+            "mean": 0.01958760322820607,
+            "std": 0.017610690641511186,
+            "values": [
+              0.039769072193278306,
+              0.011657345007950862,
+              0.007336392483389041
+            ]
+          }
+        }
+      },
+      "paired_difference_vs_fixed": {
+        "recall@10": {
+          "mean": 0.0013289577805706831,
+          "std": 0.0015101774692926919,
+          "values": [
+            0.0004957408183214676,
+            0.003072196620583712,
+            0.0004189359028068697
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.0004998943475910232,
+          "std": 0.0012915285272065483,
+          "values": [
+            -0.0004594619986785023,
+            0.0019683963105096916,
+            -9.251269058119585e-06
+          ]
+        }
+      },
+      "fraction_users_with_lower_ndcg_than_fixed": {
+        "mean": 0.03379416282642089,
+        "std": 0.010642401275384806,
+        "values": [
+          0.04608294930875576,
+          0.027649769585253458,
+          0.027649769585253458
+        ]
+      }
+    }
+  },
+  "training_popularity_baseline": {
+    "users": 217,
+    "recall@10": 0.033291439743052646,
+    "ndcg@10": 0.019912615400119682,
+    "with_source": {
+      "users": 91,
+      "recall@10": 0.0694971694971695,
+      "ndcg@10": 0.042809148462376975
+    }
+  },
+  "seed_run_elapsed_seconds": {
+    "2026": 326.72420391603373,
+    "2027": 327.13525808398845,
+    "2028": 304.7029717079713
+  },
+  "limitations": [
+    "First-million-row prefixes and a training-selected cohort; not the full dataset.",
+    "Warm-item filtering and missing source knowledge affect the evaluated population.",
+    "Three seeds show stochastic variation but do not establish a general or statistically significant advantage.",
+    "Fixed/capacity-fixed modes each use three gamma trials; other modes use one, so total search times differ.",
+    "graph_transfer adapts upstream modules and is not an exact paper reproduction."
+  ]
+}

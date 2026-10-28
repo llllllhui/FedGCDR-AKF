@@ -1,0 +1,233 @@
+{
+  "created_at_utc": "2026-10-27T10:51:59.467321+00:00",
+  "scope": "First 10000 CSV records per file; not a random sample or full dataset audit.",
+  "column_semantics_inferred": [
+    "item_id",
+    "user_id",
+    "rating",
+    "unix_timestamp_seconds"
+  ],
+  "provenance_status": "Dataset source and release version have not been verified.",
+  "full_audit_pending": [
+    "sha256",
+    "total_rows",
+    "unique_users",
+    "unique_items",
+    "duplicate_interactions",
+    "full_timestamp_range",
+    "cross_domain_user_overlap"
+  ],
+  "file_count": 16,
+  "total_size_bytes": 9024418271,
+  "sample_rows_total": 160000,
+  "files": [
+    {
+      "path": "ratings-full/Automotive.csv",
+      "size_bytes": 333489688,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1998-08-23T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-06T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Books.csv",
+      "size_bytes": 2140933459,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1997-08-29T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-04-23T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/CDs_and_Vinyl.csv",
+      "size_bytes": 189332114,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1998-05-15T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-02-22T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Cell_Phones_and_Accessories.csv",
+      "size_bytes": 420031077,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1999-10-31T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-04-20T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Clothing_Shoes_and_Jewelry.csv",
+      "size_bytes": 1347817661,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1999-10-07T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-15T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Electronics.csv",
+      "size_bytes": 876247561,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1997-12-04T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-04-19T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Grocery_and_Gourmet_Food.csv",
+      "size_bytes": 211781981,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "2000-08-09T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-05T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Home_and_Kitchen.csv",
+      "size_bytes": 915245469,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1999-12-11T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-11T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Kindle_Store.csv",
+      "size_bytes": 238886692,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1997-10-22T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-09T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Movies_and_TV.csv",
+      "size_bytes": 365735607,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1998-03-09T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-04-15T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Office_Products.csv",
+      "size_bytes": 232942890,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1998-05-08T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-04-14T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Patio_Lawn_and_Garden.csv",
+      "size_bytes": 218538436,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1999-12-13T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-09T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Pet_Supplies.csv",
+      "size_bytes": 273071383,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "2000-10-17T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-15T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Sports_and_Outdoors.csv",
+      "size_bytes": 541795338,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1999-11-25T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-07T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Tools_and_Home_Improvement.csv",
+      "size_bytes": 376265482,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "1999-12-07T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-04-27T00:00:00+00:00"
+    },
+    {
+      "path": "ratings-full/Toys_and_Games.csv",
+      "size_bytes": 342303433,
+      "sample_rows": 10000,
+      "sample_column_counts": {
+        "4": 10000
+      },
+      "sample_invalid_rows": 0,
+      "sample_rating_min": 1.0,
+      "sample_rating_max": 5.0,
+      "sample_timestamp_min_utc": "2000-08-26T00:00:00+00:00",
+      "sample_timestamp_max_utc": "2018-05-03T00:00:00+00:00"
+    }
+  ]
+}

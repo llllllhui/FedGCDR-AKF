@@ -1,0 +1,3 @@
+[submodule "upstream/FedGCDR"]
+	path = upstream/FedGCDR
+	url = https://github.com/LafinHana/FedGCDR.git

@@ -1,0 +1,17 @@
+.venv/
+.cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+!.env.example
+data/*
+!data/.gitkeep
+ratings-full/
+runs/*
+!runs/.gitkeep
+*.ckpt
+*.pt
+*.pth

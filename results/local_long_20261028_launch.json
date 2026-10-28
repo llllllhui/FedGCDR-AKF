@@ -1,0 +1,76 @@
+{
+  "status": "running_startup_verified",
+  "execution_environment": "local_mac_cpu",
+  "controller_pid": 9986,
+  "started_at_utc": "2026-10-28T07:57:08.392770+00:00",
+  "started_at_beijing": "2026-10-28T15:57:08.392770+08:00",
+  "python": "/Users/Admin/code/FedGCDR-AKF/.venv/bin/python",
+  "command": [
+    "/Users/Admin/code/FedGCDR-AKF/.venv/bin/python",
+    "-m",
+    "scripts.local_comparison",
+    "--config",
+    "/Users/Admin/code/FedGCDR-AKF/configs/local_long.json",
+    "--prepared",
+    "/Users/Admin/code/FedGCDR-AKF/data/local_small_20261028/prepared.json",
+    "--output",
+    "/Users/Admin/code/FedGCDR-AKF/runs/local_long_20261028",
+    "--report",
+    "/Users/Admin/code/FedGCDR-AKF/results/local_long_20261028"
+  ],
+  "working_directory": "/Users/Admin/code/FedGCDR-AKF",
+  "config": "configs/local_long.json",
+  "config_sha256": "6dab4db36e5c8e96a7bf98811bd3f903f9e4d9301085d19bb83864839aa6f2a4",
+  "prepared": "data/local_small_20261028/prepared.json",
+  "prepared_sha256": "c63a303639320e43bfa8a9e7b4df7d9a88e7207675eede92f01392df9d2de238",
+  "console_log": "/Users/Admin/code/FedGCDR-AKF/runs/local_long_20261028.console.log",
+  "run_directory": "/Users/Admin/code/FedGCDR-AKF/runs/local_long_20261028",
+  "status_file": "/Users/Admin/code/FedGCDR-AKF/runs/local_long_20261028/status.json",
+  "report_prefix": "/Users/Admin/code/FedGCDR-AKF/results/local_long_20261028",
+  "estimated_minutes_range": [
+    45,
+    65
+  ],
+  "estimate_basis": "Previous 3/10-round run timings scaled to 10/50 rounds, two seed waves on local CPU.",
+  "max_training_processes": 2,
+  "threads_per_training_process": 1,
+  "startup_verified_at_utc": "2026-10-28T07:58:38.819858+00:00",
+  "startup_checks": [
+    {
+      "seed": 2026,
+      "events_logged": 65,
+      "stage": "fusion",
+      "domain": null,
+      "round": 35,
+      "last_loss": 0.39030199255944353,
+      "history_bytes": 29234
+    },
+    {
+      "seed": 2027,
+      "events_logged": 65,
+      "stage": "fusion",
+      "domain": null,
+      "round": 35,
+      "last_loss": 0.3907821908991309,
+      "history_bytes": 29098
+    }
+  ],
+  "progress_verified_across_tool_calls": true,
+  "last_verified_at_utc": "2026-10-28T07:59:53.197190+00:00",
+  "latest_progress": [
+    {
+      "seed": 2026,
+      "events_logged": 96,
+      "mode": "graph_transfer",
+      "stage": "fusion",
+      "round": 15
+    },
+    {
+      "seed": 2027,
+      "events_logged": 96,
+      "mode": "graph_transfer",
+      "stage": "fusion",
+      "round": 15
+    }
+  ]
+}

@@ -1,0 +1,766 @@
+{
+  "created_at_utc": "2026-10-27T11:08:16.539524+00:00",
+  "status": "implementation_smoke_only",
+  "upstream": {
+    "url": "https://github.com/LafinHana/FedGCDR",
+    "commit": "09c63ef5b36903dfbadee86b31aabdcee7f98205",
+    "history_commits": 22,
+    "checkout": "upstream/FedGCDR",
+    "fetch_mode": "Partial clone with full commit history; current checkout materialized, historical blobs fetched on demand.",
+    "model_sha256": "a41f494219c4e9fd969fcf07ba02057a79f46507c53cd0c79245e0dcbcaa3a69",
+    "tracked_file_sha256": {
+      "README.md": "efa6800f5684858c371657135dd34c836e2bec34238c64f142a169bc89ae9f3f",
+      "assets/FedGCDR.png": "73d7a991c99eca281f77b2a21133353964fd7238e12004a6df7beae9c751de81",
+      "assets/dataset.png": "fdc0255c4ca6617e05a0f1ee0a9da962ed72adf43fc5a106a4d04b28cbea44f1",
+      "assets/results.png": "1ab2edb9e9c301a98432495ac2db46cfe68ff0da050974c84f6c1b32b184621c",
+      "main.py": "687ca80975518a99cfdd1c2f07f31d924e05bfab48800975ab0cb08227f3bdf1",
+      "model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "model/fedgcdr/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "model/fedgcdr/model.py": "a41f494219c4e9fd969fcf07ba02057a79f46507c53cd0c79245e0dcbcaa3a69",
+      "model/fedgcdr/party.py": "77d1fda2a2dd92ef0afed6584d5fc32f755b20d83767e23b07120909c7f04d33",
+      "paper/FedGCDR.pdf": "7289c0d6d66f5033c2bde764cb492cf4a3e51f41da9a7f3a96c125e7ded09ddf",
+      "utility.py": "e7b178a1648b259b3588ee7b2a163c70dd421ee361c518814fa83cd2bf999e91"
+    },
+    "license_file": "No license file found in the pinned upstream tree; no new license is assigned to upstream code."
+  },
+  "environment": {
+    "python": "3.14.6",
+    "torch": "2.14.1",
+    "numpy": "2.5.4",
+    "device": "cpu"
+  },
+  "config": {
+    "data": {
+      "ratings_dir": "ratings-full",
+      "target": "Movies_and_TV",
+      "sources": [
+        "Books",
+        "CDs_and_Vinyl"
+      ],
+      "max_rows_per_domain": 100000,
+      "max_users": 256,
+      "min_train_interactions": 2,
+      "rating_threshold": 4.0,
+      "train_fraction": 0.7,
+      "validation_fraction": 0.15,
+      "seed": 2026
+    },
+    "training": {
+      "seed": 2026,
+      "device": "cpu",
+      "threads": 1,
+      "embedding_dim": 8,
+      "pretrain_rounds": 2,
+      "fusion_rounds": 2,
+      "local_epochs": 1,
+      "client_batch_size": 16,
+      "max_history": 16,
+      "max_positives": 16,
+      "negatives_per_positive": 2,
+      "learning_rate": 0.01,
+      "fixed_gamma": 0.5,
+      "modes": [
+        "local",
+        "graph_transfer",
+        "fixed",
+        "fixed_capacity",
+        "global",
+        "user",
+        "item"
+      ]
+    }
+  },
+  "prepared_sha256": "f5a5f6055baa2e33b4c02a3e67f8a76c0fe9699b1e50affa57465b026b609c9e",
+  "data_summary": {
+    "config": {
+      "ratings_dir": "ratings-full",
+      "target": "Movies_and_TV",
+      "sources": [
+        "Books",
+        "CDs_and_Vinyl"
+      ],
+      "max_rows_per_domain": 100000,
+      "max_users": 256,
+      "min_train_interactions": 2,
+      "rating_threshold": 4.0,
+      "train_fraction": 0.7,
+      "validation_fraction": 0.15,
+      "seed": 2026
+    },
+    "scope": "bounded_prefix_pilot",
+    "cohort_rule": "Target users selected by training-only history, then seeded ID hash; sources restricted to this cohort.",
+    "deduplication": "Earliest positive event per domain/user/item, rating >= threshold.",
+    "split_rule": "Target timestamp quantiles; all domain training timestamps <= target train cutoff; warm items only.",
+    "train_cutoff": 1447718400,
+    "validation_cutoff": 1473552000,
+    "users": 256,
+    "source_overlap_users": 86,
+    "domains": {
+      "Movies_and_TV": {
+        "train_users": 256,
+        "train_items": 156,
+        "train_pairs": 715,
+        "max_train_timestamp": 1446854400,
+        "validation": {
+          "cohort_positive_pairs": 15,
+          "warm_item_positive_pairs": 14,
+          "dropped_unseen_items": 1,
+          "evaluated_users": 8
+        },
+        "test": {
+          "cohort_positive_pairs": 10,
+          "warm_item_positive_pairs": 8,
+          "dropped_unseen_items": 2,
+          "evaluated_users": 6
+        }
+      },
+      "Books": {
+        "train_users": 32,
+        "train_items": 49,
+        "train_pairs": 83,
+        "max_train_timestamp": 1418256000
+      },
+      "CDs_and_Vinyl": {
+        "train_users": 73,
+        "train_items": 300,
+        "train_pairs": 373,
+        "max_train_timestamp": 1445385600
+      }
+    },
+    "input_manifest": [
+      {
+        "domain": "Movies_and_TV",
+        "path": "/Users/Admin/code/FedGCDR-AKF/ratings-full/Movies_and_TV.csv",
+        "file_size_bytes": 365735607,
+        "rows_read": 100000,
+        "bytes_read": 4168512,
+        "positive_rows": 85816,
+        "hash_scope": "consumed_prefix",
+        "sha256": "98200cee245e5ad98405ad97a786e17fe9c58f9841c200fd56f66b608e37f13e",
+        "unique_positive_pairs": 85516,
+        "duplicate_positive_rows": 300
+      },
+      {
+        "domain": "Books",
+        "path": "/Users/Admin/code/FedGCDR-AKF/ratings-full/Books.csv",
+        "file_size_bytes": 2140933459,
+        "rows_read": 100000,
+        "bytes_read": 4170542,
+        "positive_rows": 82473,
+        "hash_scope": "consumed_prefix",
+        "sha256": "7045186dde12b5c6a0308629f3050b3be8a406d28b9565beeb2d8cf167fca0de",
+        "unique_positive_pairs": 80546,
+        "duplicate_positive_rows": 1927
+      },
+      {
+        "domain": "CDs_and_Vinyl",
+        "path": "/Users/Admin/code/FedGCDR-AKF/ratings-full/CDs_and_Vinyl.csv",
+        "file_size_bytes": 189332114,
+        "rows_read": 100000,
+        "bytes_read": 4158611,
+        "positive_rows": 89112,
+        "hash_scope": "consumed_prefix",
+        "sha256": "7dc70e0976300984810c70d233d003857a0639100bb0820ec12b1e483b8b2e40",
+        "unique_positive_pairs": 88588,
+        "duplicate_positive_rows": 524
+      }
+    ],
+    "provenance": "User-supplied CSV files; dataset release and ID semantics not independently verified."
+  },
+  "source_knowledge_vectors": 105,
+  "users_with_source_knowledge": 86,
+  "source_knowledge_payload_bytes_estimate": 3360,
+  "pretrain_payload_bytes_estimate": 698912,
+  "selection": "Best validation NDCG@10, then Recall@10; earliest tied round; test once per declared mode.",
+  "candidate_protocol": "All cohort training items, excluding each user's training positives; warm user/item evaluation.",
+  "limitations": [
+    "In-process federated simulation, no formal DP/security aggregation.",
+    "Upstream GAT/MLP reused; graph_transfer is a protocol adaptation, not an exact paper reproduction.",
+    "Bounded prefix and cohort runs do not support recommendation-effectiveness claims.",
+    "fixed_capacity is approximate parameter matching; formal runs still require validation-only hyperparameter search and multiple seeds."
+  ],
+  "elapsed_seconds": 4.914679041015916,
+  "outcomes": {
+    "local": {
+      "selected_round": 1,
+      "validation": {
+        "recall@10": 0.125,
+        "ndcg@10": 0.036133103289735985,
+        "gamma_mean": 0.0,
+        "gamma_std_across_users": 0.0,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.14285714285714285,
+            "ndcg@10": 0.041294975188269696,
+            "gamma_mean": 0.0
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.0
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 0.0,
+        "gamma_std_across_users": 0.0,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.0
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 683,
+      "active_shared_parameters": 0,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.0,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.0,
+        "maximum_user_mean": 0.0
+      },
+      "fusion_payload_bytes_estimate": 336720,
+      "elapsed_seconds": 0.47332595800980926,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    },
+    "graph_transfer": {
+      "selected_round": 2,
+      "validation": {
+        "recall@10": 0.1875,
+        "ndcg@10": 0.08667830045215885,
+        "gamma_mean": 1.0,
+        "gamma_std_across_users": 0.0,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.14285714285714285,
+            "ndcg@10": 0.05526468674779166,
+            "gamma_mean": 1.0
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.5,
+            "ndcg@10": 0.3065735963827292,
+            "gamma_mean": 1.0
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 1.0,
+        "gamma_std_across_users": 0.0,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 1.0
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 683,
+      "active_shared_parameters": 536,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 1.0,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 1.0,
+        "maximum_user_mean": 1.0
+      },
+      "fusion_payload_bytes_estimate": 2532176,
+      "elapsed_seconds": 0.653156292042695,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    },
+    "fixed": {
+      "selected_round": 1,
+      "validation": {
+        "recall@10": 0.0625,
+        "ndcg@10": 0.0766433990956823,
+        "gamma_mean": 0.1875,
+        "gamma_std_across_users": 0.24206146597862244,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.14285714285714285
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.5,
+            "ndcg@10": 0.6131471927654584,
+            "gamma_mean": 0.5
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 0.16666666666666666,
+        "gamma_std_across_users": 0.2357022613286972,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.16666666666666666
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 683,
+      "active_shared_parameters": 683,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.5,
+        "maximum_user_mean": 0.5
+      },
+      "fusion_payload_bytes_estimate": 3134288,
+      "elapsed_seconds": 0.6382785419700667,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    },
+    "fixed_capacity": {
+      "selected_round": 2,
+      "validation": {
+        "recall@10": 0.1875,
+        "ndcg@10": 0.1523009296022705,
+        "gamma_mean": 0.1875,
+        "gamma_std_across_users": 0.24206146597862244,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.14285714285714285,
+            "ndcg@10": 0.14285714285714285,
+            "gamma_mean": 0.14285714285714285
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.5,
+            "ndcg@10": 0.21840743681816419,
+            "gamma_mean": 0.5
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 0.16666666666666666,
+        "gamma_std_across_users": 0.2357022613286972,
+        "gamma_std_across_users_with_source": 0.0,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.16666666666666666
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 845,
+      "active_shared_parameters": 845,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5,
+        "std_across_user_means": 0.0,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.5,
+        "maximum_user_mean": 0.5
+      },
+      "fusion_payload_bytes_estimate": 3797840,
+      "elapsed_seconds": 0.6267449159640819,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    },
+    "global": {
+      "selected_round": 1,
+      "validation": {
+        "recall@10": 0.0625,
+        "ndcg@10": 0.0766433990956823,
+        "gamma_mean": 0.1858103796839714,
+        "gamma_std_across_users": 0.23988017439842224,
+        "gamma_std_across_users_with_source": 2.4333495218797907e-08,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.14156981451170786
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.5,
+            "ndcg@10": 0.6131471927654584,
+            "gamma_mean": 0.4954943358898163
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 0.1651647835969925,
+        "gamma_std_across_users": 0.23357827961444855,
+        "gamma_std_across_users_with_source": 2.107342389479072e-08,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.1651647835969925
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 684,
+      "active_shared_parameters": 684,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.4954943060874939,
+        "std_across_user_means": 2.9802322387695312e-08,
+        "mean_std_across_candidate_items": 0.0,
+        "minimum_user_mean": 0.4954943358898163,
+        "maximum_user_mean": 0.4954943358898163
+      },
+      "fusion_payload_bytes_estimate": 3138384,
+      "elapsed_seconds": 0.6309122079983354,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    },
+    "user": {
+      "selected_round": 1,
+      "validation": {
+        "recall@10": 0.0625,
+        "ndcg@10": 0.0766433990956823,
+        "gamma_mean": 0.2200600504875183,
+        "gamma_std_across_users": 0.2841654121875763,
+        "gamma_std_across_users_with_source": 0.010233609937131405,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.16610395908355713
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.5,
+            "ndcg@10": 0.6131471927654584,
+            "gamma_mean": 0.5977526903152466
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 0.19523277878761292,
+        "gamma_std_across_users": 0.2761099636554718,
+        "gamma_std_across_users_with_source": 0.003884941339492798,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.19523277878761292
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 836,
+      "active_shared_parameters": 836,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5880834460258484,
+        "std_across_user_means": 0.011858140118420124,
+        "mean_std_across_candidate_items": 1.4554622561432594e-08,
+        "minimum_user_mean": 0.5726246237754822,
+        "maximum_user_mean": 0.6240689754486084
+      },
+      "fusion_payload_bytes_estimate": 3760976,
+      "elapsed_seconds": 0.7188487499952316,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    },
+    "item": {
+      "selected_round": 1,
+      "validation": {
+        "recall@10": 0.0625,
+        "ndcg@10": 0.0766433990956823,
+        "gamma_mean": 0.20128770917654037,
+        "gamma_std_across_users": 0.2598625719547272,
+        "gamma_std_across_users_with_source": 0.001322188531048596,
+        "users": 8,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 7,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.153094972882952
+          },
+          "5_to_9": {
+            "users": 1,
+            "recall@10": 0.5,
+            "ndcg@10": 0.6131471927654584,
+            "gamma_mean": 0.5386368632316589
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "test": {
+        "recall@10": 0.0,
+        "ndcg@10": 0.0,
+        "gamma_mean": 0.1774475077788035,
+        "gamma_std_across_users": 0.250956654548645,
+        "gamma_std_across_users_with_source": 0.0034651458263397217,
+        "users": 6,
+        "by_train_count": {
+          "1_to_4": {
+            "users": 6,
+            "recall@10": 0.0,
+            "ndcg@10": 0.0,
+            "gamma_mean": 0.1774475077788035
+          },
+          "5_to_9": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          },
+          "10_plus": {
+            "users": 0,
+            "recall@10": null,
+            "ndcg@10": null,
+            "gamma_mean": null
+          }
+        }
+      },
+      "shared_module_parameters": 900,
+      "active_shared_parameters": 900,
+      "embedding_parameters": 5344,
+      "training_only_gate_diagnostics": {
+        "scope": "Users with training source knowledge; first up to 128 training-catalog items per user.",
+        "users": 86,
+        "mean": 0.5317164659500122,
+        "std_across_user_means": 0.00757474172860384,
+        "mean_std_across_candidate_items": 0.008274756696854913,
+        "minimum_user_mean": 0.5182279348373413,
+        "maximum_user_mean": 0.55733323097229
+      },
+      "fusion_payload_bytes_estimate": 4023120,
+      "elapsed_seconds": 0.7257767079863697,
+      "test_ndcg_change_vs_local": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      },
+      "test_ndcg_change_vs_fixed": {
+        "mean": 0.0,
+        "fraction_decreased": 0.0,
+        "fraction_unchanged": 1.0
+      }
+    }
+  }
+}

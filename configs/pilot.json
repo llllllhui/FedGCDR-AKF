@@ -1,0 +1,30 @@
+{
+  "data": {
+    "ratings_dir": "ratings-full",
+    "target": "Movies_and_TV",
+    "sources": ["Books", "CDs_and_Vinyl"],
+    "max_rows_per_domain": 100000,
+    "max_users": 256,
+    "min_train_interactions": 2,
+    "rating_threshold": 4.0,
+    "train_fraction": 0.7,
+    "validation_fraction": 0.15,
+    "seed": 2026
+  },
+  "training": {
+    "seed": 2026,
+    "device": "cpu",
+    "threads": 1,
+    "embedding_dim": 8,
+    "pretrain_rounds": 2,
+    "fusion_rounds": 2,
+    "local_epochs": 1,
+    "client_batch_size": 16,
+    "max_history": 16,
+    "max_positives": 16,
+    "negatives_per_positive": 2,
+    "learning_rate": 0.01,
+    "fixed_gamma": 0.5,
+    "modes": ["local", "graph_transfer", "fixed", "fixed_capacity", "global", "user", "item"]
+  }
+}

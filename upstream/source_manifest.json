@@ -1,0 +1,22 @@
+{
+  "url": "https://github.com/LafinHana/FedGCDR",
+  "commit": "09c63ef5b36903dfbadee86b31aabdcee7f98205",
+  "history_commits": 22,
+  "checkout": "upstream/FedGCDR",
+  "fetch_mode": "Partial clone with full commit history; current checkout materialized, historical blobs fetched on demand.",
+  "model_sha256": "a41f494219c4e9fd969fcf07ba02057a79f46507c53cd0c79245e0dcbcaa3a69",
+  "tracked_file_sha256": {
+    "README.md": "efa6800f5684858c371657135dd34c836e2bec34238c64f142a169bc89ae9f3f",
+    "assets/FedGCDR.png": "73d7a991c99eca281f77b2a21133353964fd7238e12004a6df7beae9c751de81",
+    "assets/dataset.png": "fdc0255c4ca6617e05a0f1ee0a9da962ed72adf43fc5a106a4d04b28cbea44f1",
+    "assets/results.png": "1ab2edb9e9c301a98432495ac2db46cfe68ff0da050974c84f6c1b32b184621c",
+    "main.py": "687ca80975518a99cfdd1c2f07f31d924e05bfab48800975ab0cb08227f3bdf1",
+    "model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model/fedgcdr/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model/fedgcdr/model.py": "a41f494219c4e9fd969fcf07ba02057a79f46507c53cd0c79245e0dcbcaa3a69",
+    "model/fedgcdr/party.py": "77d1fda2a2dd92ef0afed6584d5fc32f755b20d83767e23b07120909c7f04d33",
+    "paper/FedGCDR.pdf": "7289c0d6d66f5033c2bde764cb492cf4a3e51f41da9a7f3a96c125e7ded09ddf",
+    "utility.py": "e7b178a1648b259b3588ee7b2a163c70dd421ee361c518814fa83cd2bf999e91"
+  },
+  "license_file": "No license file found in the pinned upstream tree; no new license is assigned to upstream code."
+}
